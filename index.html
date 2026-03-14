@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;600&family=Lora:italic,wght@400;700&display=swap');
         
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; letter-spacing: -0.04em; }
+        .font-serif { font-family: 'Lora', serif; }
 
         .hero-section {
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
@@ -21,15 +22,36 @@
             background-size: cover; background-position: center;
         }
 
-        /* Estilo para que tus artículos externos se vean perfectos sin tocar código */
-        .article-content img { border-radius: 1.5rem; margin: 2rem 0; width: 100%; object-fit: cover; }
-        .article-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #475569; font-size: 1.125rem; }
-        .article-content h2 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #0f172a; font-style: italic; }
+        /* DISEÑO DE ARTÍCULO AUTOMÁTICO */
+        /* Esta sección hará que lo que escribas en el editor se vea impecable */
+        #article-body img { 
+            border-radius: 2rem; 
+            margin: 2.5rem 0; 
+            width: 100%; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        #article-body p { 
+            margin-bottom: 1.8rem; 
+            line-height: 1.9; 
+            color: #334155; 
+            font-size: 1.2rem;
+            font-family: 'Lora', serif;
+        }
+        #article-body h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 2rem; font-style: italic; }
+        #article-body h2 { font-size: 2.2rem; margin-top: 3rem; margin-bottom: 1.5rem; color: #0f172a; }
+        #article-body blockquote {
+            border-left: 4px solid #d97706;
+            padding-left: 2rem;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin: 3rem 0;
+        }
     </style>
 </head>
 <body class="bg-[#fafaf9] text-slate-900">
 
-    <!-- Navegación Simplificada -->
+    <!-- Navegación -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <a href="#" class="text-2xl font-900 tracking-tighter italic">
@@ -39,16 +61,16 @@
                 <a href="https://instagram.com/vancampertravel" target="_blank" class="text-slate-900 text-xl hover:text-amber-600 transition">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#newsletter" class="bg-amber-600 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">Comunidad</a>
+                <a href="#newsletter" class="bg-amber-600 text-white px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md hover:bg-amber-700 transition">Newsletter</a>
             </div>
         </div>
     </nav>
 
-    <!-- Portada Impactante -->
-    <header class="hero-section h-[80vh] flex items-center justify-center text-center px-6">
+    <!-- Portada Principal -->
+    <header class="hero-section h-[70vh] flex items-center justify-center text-center px-6">
         <div class="max-w-4xl">
             <h1 class="text-6xl md:text-8xl font-900 text-white mb-6 leading-none uppercase">
-                VIVE LA<br><span class="italic text-amber-500 underline decoration-white/20 underline-offset-8">LIBERTAD.</span>
+                VIVE LA<br><span class="italic text-amber-500 underline decoration-white/20 underline-offset-8 text-7xl md:text-9xl">LIBERTAD.</span>
             </h1>
             <p class="text-xl text-white/90 font-light max-w-2xl mx-auto mb-10 italic">
                 Crónicas de carretera y la búsqueda incansable de la libertad.
@@ -56,32 +78,45 @@
         </div>
     </header>
 
-    <!-- Sección de Bitácora (Donde irán tus textos de StackEdit) -->
-    <section id="blog" class="py-24 max-w-5xl mx-auto px-6">
-        <div class="mb-16 border-b border-slate-200 pb-8">
-            <h2 class="text-4xl font-900 uppercase italic">Bitácora de Ruta</h2>
-            <p class="text-slate-500 mt-2">Relatos humanos desde el interior de una camper.</p>
-        </div>
-
-        <!-- ARTÍCULO DESTACADO (Ejemplo de cómo queda el texto limpio) -->
-        <article class="article-content">
-            <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Última Entrada</span>
-            <h2 class="!text-5xl !mt-2">Alpes: El viaje que cambió mi forma de ver el mundo.</h2>
+    <!-- Contenido del Artículo -->
+    <main class="py-24 max-w-3xl mx-auto px-6">
+        
+        <!-- Aquí es donde se "inyecta" tu texto desde el editor -->
+        <div id="article-body">
+            <span class="text-amber-600 font-bold text-xs uppercase tracking-[0.3em] mb-4 block">Última Entrada</span>
+            
+            <!-- Ejemplo de contenido (esto cambiará cuando tú escribas en StackEdit) -->
+            <h1>Alpes: El silencio entre los picos más altos.</h1>
             
             <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1200" alt="Alpes">
             
             <p>No hay motor que suene más fuerte que el silencio de la montaña a las seis de la mañana. Viajar en camper te obliga a recuperar el pulso humano; no puedes correr si quieres disfrutar de la vista.</p>
             
-            <p>He aprendido que la libertad no es el vehículo que conduces, sino la capacidad de decidir dónde se detiene tu mirada hoy. En esta ruta por los Alpes, el frío del cristal al despertar era el mejor recordatorio de que estamos vivos.</p>
-        </article>
+            <blockquote>"La libertad no es el vehículo que conduces, sino la capacidad de decidir dónde se detiene tu mirada hoy."</blockquote>
+            
+            <p>He aprendido que en la carretera, cada kilómetro es una página en blanco. Esta es la bitácora de un viaje que empezó en los mapas y terminó en el alma.</p>
+        </div>
+
+    </main>
+
+    <!-- Newsletter Simple -->
+    <section id="newsletter" class="bg-amber-100 py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <h3 class="text-3xl font-900 mb-4 uppercase italic">Únete a la Bitácora</h3>
+            <p class="text-slate-600 mb-8 font-serif">Recibe un aviso cada vez que publique una nueva ruta o una reflexión desde la camper.</p>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <input type="email" placeholder="Tu email" class="flex-1 px-6 py-4 rounded-full outline-none focus:ring-2 ring-amber-500">
+                <button class="bg-slate-900 text-white px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest">Suscribirme</button>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-slate-950 text-white py-16 px-6 text-center">
         <div class="text-2xl font-900 italic mb-4">VAN<span class="text-amber-500">CAMPER</span>TRAVEL</div>
-        <p class="text-slate-500 text-sm mb-8">Historias de carretera y cultura del viaje lento.</p>
-        <div class="text-[10px] uppercase tracking-widest text-slate-700">
-            &copy; 2025 Vancampertravel | Hecho con pasión por la ruta
+        <p class="text-slate-500 text-sm mb-8 italic">Historias de carretera y cultura del viaje lento.</p>
+        <div class="text-[9px] uppercase tracking-[0.4em] text-slate-700 font-bold">
+            &copy; 2025 Vancampertravel | Por y para la comunidad camper
         </div>
     </footer>
 
